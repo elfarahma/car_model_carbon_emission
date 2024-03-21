@@ -76,3 +76,39 @@ From the categorical features in the dataset, distribution patterns can be obser
 <p align="center"><em>Figure 7. Relationship between two predictors (Engine Size and Fuel Type) and CO2 Emission</em></p>
 
 From Figure 6, it is evident that there is a positive correlation between the size of the car model and the engine size. As the dimensions of a car type increase, so does the engine size. The engine size itself (as shown in Figure 2) correlates positively with fuel consumption and CO2 emissions. Furthermore, as seen in Figure 7, larger engine sizes tend to use premium gasoline, specifically engine sizes ranging from 3 liters to above 8 liters. On the other hand, regular gasoline is typically used in car types with engine sizes ranging from one to four liters.
+
+<div align="center">
+  <img src="https://github.com/elfarahma/car_model_carbon_emission/blob/main/figures/8.png" />
+</div>
+
+<p align="center"><em>Figure 8. Vehicle Class vs CO2 Emission</em></p>
+
+<div align="center">
+  <img src="https://github.com/elfarahma/car_model_carbon_emission/blob/main/figures/9.png" />
+</div>
+
+<p align="center"><em>Figure 9. Vehicle Class vs Combined Fuel Consumption (Urban and Highway)</em></p>
+
+<div align="center">
+  <img src="https://github.com/elfarahma/car_model_carbon_emission/blob/main/figures/10.png" />
+</div>
+
+<p align="center"><em>Figure 10. Vehicle Class vs Cylinders</em></p>
+
+We can also observe the distribution comparison of each car model in Figure 8. The interquartile range of the sixteen categories indeed indicates an increase in carbon emission values. In the small station wagon category which has the smallest engine size, the interquartile range for this category ranges from 190 to 230 g CO2/km. Meanwhile, the passenger van falls within the range of 350 to 450 g CO2/km. Furthermore, this distribution pattern appears to be almost identical to the distribution pattern between "Vehicle Class" and "Fuel Comb (L/100 km)" (Figure 9), as well as with "Cylinders."
+
+<div align="center">
+  <img src="https://github.com/elfarahma/car_model_carbon_emission/blob/main/figures/11.png" />
+</div>
+
+<p align="center"><em>Figure 11. Final Dataset</em></p>
+
+
+
+The final dataset can be seen in Figure 11. The dataset consists of six predictor features and one outcome variable. Among the predictors, there are three categorical features and three numerical features.
+
+
+## Statistical Test
+The statistical test focuses on comparing the impact of vehicle models in the "Vehicle Class" feature on carbon emissions (the "CO2 emission (g/km)" feature). The t-test is used for statistical analysis due to the unequal sample variance and unknown population standard deviation. Before conducting the test, it is important to ensure that sample members from the compared groups are sufficiently representative. Therefore, other influential variables need to fall into a similar category. The variables here are "Fuel Type" and "Transmission." The chosen category for "Fuel Type" is regular gasoline. For "Transmission," the category is the automatic transmission. These categories are picked due to the relatively fair size of samples.
+How about the numerical variables? From the above exploration, the "Vehicle Class" feature shows a positive correlation with numerical features such as "Cylinders," "Fuel Consumption Comb," and "Engine Size." This suggests that each vehicle type is strongly embedded with a certain engine size and the number of cylinders. Larger engine sizes also require greater fuel consumption. Therefore, the numerical variables are not set to be in similar values.
+This project will conduct three comparisons among multiple categories, which can be seen as follows:
