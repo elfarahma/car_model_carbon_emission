@@ -130,3 +130,17 @@ The significant level (alpha) is 0.05.
 </div>
 
 <p align="center"><em>Figure 12. Distribution Plot (Compact vs Small SUV)</em></p>
+
+The test results indicate that the p-value is less than the alpha value, leading to the rejection of the null hypothesis (H0). Therefore, we can say that compact cars' emissions are less than small SUVs (H1). Using a 95% confidence level, the test results indicate that the confidence interval falls between minus infinity (lower bound) and -45.09 (upper bound).
+
+2. Small SUV vs Standard SUV
+
+   
+The null (H0) and alternative (H1) hypotheses are defined as follows:
+<blockquote>
+𝐻0: The small SUV cars' emissions are greater or equal to standard SUVs.
+  
+H1: The small SUV car's emissions are less than standard SUVs.
+</blockquote>  
+
+The significant level (alpha) is 0.05.
