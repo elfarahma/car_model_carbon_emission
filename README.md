@@ -185,3 +185,19 @@ The baseline for this regression model is the "compact" car model. Thus, the int
 </div>
 
 <p align="center"><em>Table 1. Coefficient and standard error without predictor transformation</em></p>
+
+The inclusion of numerous categories in the predictor feature results in a rather lengthy formula. What if the predictor feature, which consists of categorical data, is transformed beforehand? During the transformation phase, the 16 existing categories are encoded using label encoding, resulting in 16 numerical values (0–15). We can see that after the transformation, the formula becomes simpler (Table 2).
+It is important to assess whether this simplified formula is also reasonable. Let's re-interpret the results. The label value of zero represents the "compact" car model, indicating that the "compact" model yields emissions of 227.77 g CO2/km. What about other car models? Let's take small SUV as an example. After transformation, the small SUV model has 11 as the label value. If we estimate its emissions using the linear regression formula below, the result equals the intercept value plus the coefficient multiplied by 11 (3.69 × 11), resulting in emissions of 268 g CO2/km. The standard error value is relatively smaller compared to the previous untransformed regression model. However, this model doesn't perform well when it's tested for the r-squared value. The r-square is only 0.09. Far smaller from the untransformed one which is 0.36.
+
+<div align="center">
+  <img src="https://github.com/elfarahma/car_model_carbon_emission/blob/main/figures/table_2.png" />
+</div>
+
+<p align="center"><em>Table 2. Coefficient and standard error for a single predictor regression model</em></p>
+
+<div align="center">
+  <img src="https://github.com/elfarahma/car_model_carbon_emission/blob/main/figures/15.png" />
+</div>
+
+<p align="center"><em>Figure 15. The fitted line for a single predictor regression model</em></p>
+
