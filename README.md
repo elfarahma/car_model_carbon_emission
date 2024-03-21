@@ -150,3 +150,32 @@ The significant level (alpha) is 0.05.
 </div>
 
 <p align="center"><em>Figure 13. Distribution Plot (Small SUV vs Standard SUV)</em></p>
+
+The test results indicate that the p-value is less than the alpha value, leading to the rejection of the null hypothesis (H0). Therefore, we can say that small SUV cars' emissions are less than standard SUVs (H1). Using a 95% confidence level, the test results indicate that the confidence interval falls between minus infinity (lower bound) and -52.55 (upper bound).
+
+3. Cargo Van vs Passenger Van
+   
+The null (H0) and alternative (H1) hypotheses are defined as follows:
+
+<blockquote>
+𝐻0: The cargo van cars' emissions are greater or equal to passenger van's.
+  
+H1: The cargo van car's emissions are less than passenger van's.
+</blockquote>
+
+The significant level (alpha) is 0.05.
+
+
+<div align="center">
+  <img src="https://github.com/elfarahma/car_model_carbon_emission/blob/main/figures/14.png" />
+</div>
+
+<p align="center"><em>Figure 14. Distribution Plot (Passenger van vs cargo van)</em></p>
+
+The test results indicate that the p-value is less than the alpha value, leading to the rejection of the null hypothesis (H0). Therefore, we can say that small passenger van cars' emissions are less than cargo van's (H1). Using a 95% confidence level, the test results indicate that the confidence interval falls between minus infinity (lower bound) and -43.73 (upper bound).
+
+## Regression Model
+### Single Predictor
+
+The predictor variable selected for analysis is the "Vehicle Class" feature, which consists of 16 categories of car models. The model fitting process was performed using the Ordinary Least Squares (OLS) technique to estimate the coefficients in a linear regression model of carbon emissions from various types of vehicles. Table 1 below illustrates the intercept, coefficients, and standard errors for each category of the predictor.
+The baseline for this regression model is the "compact" car model. Thus, the interpretation of this model is that if the car model is "compact," the estimated carbon emissions are 217.64 g CO2/km. On the other hand, if the car model is a standard SUV, the estimated value is calculated as the intercept plus the coefficient, resulting in a predicted value of 306.73 g CO2/km.
