@@ -19,3 +19,60 @@ The objectives of this final project are as follows:
 ### Description
 
 The dataset used is obtained from the official website of the Canadian government and re-uploaded on Kaggle by Podder (2020). The dataset contains information on CO2 emission values with 11 features related to the characteristics of a car type from the year 2020 in Canada. The features in the dataset are as follows (Figure 1):
+
+<div align="center">
+  <img src="https://github.com/elfarahma/car_model_carbon_emission/blob/main/figures/1.png" />
+</div>
+
+<p align="center"><em>Figure 1. The dataset features.</em></p>
+
+The CO2 emissions feature is the outcome variable, while the other 10 features are predictor variables. Out of these ten predictors, three are categorical variables and the remaining seven are numerical.
+
+### Cleaning and transformation
+
+The original dataset has 7385 rows and 12 columns. After removing the duplicates, the total number of rows is reduced to 6282. Null data was not found in this dataset. The "Make" feature, which represents the manufacturer, will be removed. And also the "Model" feature. The two features contain too many unique names.
+
+<div align="center">
+  <img src="https://github.com/elfarahma/car_model_carbon_emission/blob/main/figures/2.png" />
+</div>
+
+<p align="center"><em>Figure 2. Correlation heatmap between features.</em></p>
+
+From the correlation heatmap (Figure 2), it can be observed that the features "Fuel Consumption City (L/100 km)" and "Fuel Consumption Hwy (L/100 km)" have a near-collinear relationship with the feature "Fuel Consumption Comb (L/100 km)". This is not surprising since the latter feature represents the aggregation of fuel consumption in urban and highway driving conditions. Based on this, the project will only use the combined fuel consumption feature. The feature "Fuel Consumption Comb (mpg)" is also removed because it essentially represents the same information as "Fuel Consumption Comb (L/100 km)" but in a different unit of measurement.
+This project adopts some approaches used by Podder, such as modifying the unique names in the "Fuel Type" feature to make the data easier to understand. Another adoption is reducing the unique names in the "Transmission" feature from 27 to only 5 types of transmissions.
+### Distribution
+From the categorical features in the dataset, distribution patterns can be observed. In the "Fuel Type" feature, regular and premium gasoline are the most dominant compared to ethanol and diesel (Figure 3). There is also a single entry for natural gas in the dataset. This entry is considered an outlier and hence removed. The "Transmission" feature indicates a significant dominance of automatic transmissions and their variants compared to manual transmissions (Figure 4). The "Vehicle Class" feature covers 16 car models. Small-sized SUVs have the highest frequency, while standard-sized SUVs rank fourth (Figure 5). This distribution pattern reveals a trend of manufacturers abandoning practical car models such as station wagons, pickup trucks, vans, and minivans. A practical model refers to a car design with sufficient cargo and passenger capacity without excessively large dimensions. In contrast with SUV models, which tend to have large dimensions but limited cargo capacity.
+
+<div align="center">
+  <img src="https://github.com/elfarahma/car_model_carbon_emission/blob/main/figures/3.png" />
+</div>
+
+<p align="center"><em>Figure 3. Distribution for the "Fuel Type" feature</em></p>
+
+<div align="center">
+  <img src="https://github.com/elfarahma/car_model_carbon_emission/blob/main/figures/4.png" />
+</div>
+
+<p align="center"><em>Figure 4. Distribution for the "Transmission" feature</em></p>
+
+<div align="center">
+  <img src="https://github.com/elfarahma/car_model_carbon_emission/blob/main/figures/5.png" />
+</div>
+
+<p align="center"><em>Figure 5. Distribution for the "Vehicle Class" feature</em></p>
+
+### Relationships among variables
+
+<div align="center">
+  <img src="https://github.com/elfarahma/car_model_carbon_emission/blob/main/figures/6.png" />
+</div>
+
+<p align="center"><em>Figure 6. Vehicle Class vs Engine Size</em></p>
+
+<div align="center">
+  <img src="https://github.com/elfarahma/car_model_carbon_emission/blob/main/figures/7.png" />
+</div>
+
+<p align="center"><em>Figure 7. Relationship between two predictors (Engine Size and Fuel Type) and CO2 Emission</em></p>
+
+From Figure 6, it is evident that there is a positive correlation between the size of the car model and the engine size. As the dimensions of a car type increase, so does the engine size. The engine size itself (as shown in Figure 2) correlates positively with fuel consumption and CO2 emissions. Furthermore, as seen in Figure 7, larger engine sizes tend to use premium gasoline, specifically engine sizes ranging from 3 liters to above 8 liters. On the other hand, regular gasoline is typically used in car types with engine sizes ranging from one to four liters.
