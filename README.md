@@ -144,3 +144,9 @@ H1: The small SUV car's emissions are less than standard SUVs.
 </blockquote>  
 
 The significant level (alpha) is 0.05.
+
+<div align="center">
+  <img src="https://github.com/elfarahma/car_model_carbon_emission/blob/main/figures/13.png" />
+</div>
+
+<p align="center"><em>Figure 13. Distribution Plot (Small SUV vs Standard SUV)</em></p>
