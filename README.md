@@ -179,3 +179,9 @@ The test results indicate that the p-value is less than the alpha value, leading
 
 The predictor variable selected for analysis is the "Vehicle Class" feature, which consists of 16 categories of car models. The model fitting process was performed using the Ordinary Least Squares (OLS) technique to estimate the coefficients in a linear regression model of carbon emissions from various types of vehicles. Table 1 below illustrates the intercept, coefficients, and standard errors for each category of the predictor.
 The baseline for this regression model is the "compact" car model. Thus, the interpretation of this model is that if the car model is "compact," the estimated carbon emissions are 217.64 g CO2/km. On the other hand, if the car model is a standard SUV, the estimated value is calculated as the intercept plus the coefficient, resulting in a predicted value of 306.73 g CO2/km.
+
+<div align="center">
+  <img src="https://github.com/elfarahma/car_model_carbon_emission/blob/main/figures/table_1.png" />
+</div>
+
+<p align="center"><em>Table 1. Coefficient and standard error without predictor transformation</em></p>
