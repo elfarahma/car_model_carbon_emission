@@ -175,7 +175,7 @@ The significant level (alpha) is 0.05.
 The test results indicate that the p-value is less than the alpha value, leading to the rejection of the null hypothesis (H0). Therefore, we can say that small passenger van cars' emissions are less than cargo van's (H1). Using a 95% confidence level, the test results indicate that the confidence interval falls between minus infinity (lower bound) and -43.73 (upper bound).
 
 ## Regression Model
-### Single Predictor
+### Single predictor
 
 The predictor variable selected for analysis is the "Vehicle Class" feature, which consists of 16 categories of car models. The model fitting process was performed using the Ordinary Least Squares (OLS) technique to estimate the coefficients in a linear regression model of carbon emissions from various types of vehicles. Table 1 below illustrates the intercept, coefficients, and standard errors for each category of the predictor.
 The baseline for this regression model is the "compact" car model. Thus, the interpretation of this model is that if the car model is "compact," the estimated carbon emissions are 217.64 g CO2/km. On the other hand, if the car model is a standard SUV, the estimated value is calculated as the intercept plus the coefficient, resulting in a predicted value of 306.73 g CO2/km.
@@ -201,3 +201,66 @@ It is important to assess whether this simplified formula is also reasonable. Le
 
 <p align="center"><em>Figure 15. The fitted line for a single predictor regression model</em></p>
 
+### Multi predictors
+
+For the linear regression model with multiple predictors, the selected features for prediction are "Engine Size" and "Fuel Type." The variable "Fuel Type" is first transformed into numerical values. Subsequently, a comparison will be made between the model without interaction among variables and the model with interaction among variables. This analysis aims to evaluate the model's performance by considering several metrics, such as coefficients, standard errors, and R-squared. Additionally, the standardization of the "Engine Size" feature is also carried out by using z-scores. The result will then be compared to the unstandardized one.
+From Table 3 below, we can see that there is no significant difference in performance based on the R-squared values.
+
+<div align="center">
+  <img src="https://github.com/elfarahma/car_model_carbon_emission/blob/main/figures/table_3.png" />
+</div>
+
+<p align="center"><em>Table 3. R-Square value for each multiple predictors regression model</em></p>
+
+From a coefficient perspective, each model can be logically interpreted based on the data distribution. The interpretation is drawn using the rule of thumb that "Engine Size" will never be equal to zero. The logic is without a working engine, a car can't generate emissions. The data itself shows that the smallest engine size is 0.9 liters, and the largest is 8.4 liters. Therefore, we can assume that the logical range for engine size should be within this range.
+The standardized models (models 2 and 4) have larger intercept values compared to the non-standardized models. This is expected because the standardized "Engine Size" values range from -1.66 to 3.83. Thus, the large intercept values would be compensated for smaller engine sizes. Figures 16 and 17 illustrate that larger intercept values tend to have smaller standard errors. The coefficients for "Fuel Type" are relatively small, except for model 3 (Figure 17). But model 3 also has a larger standard error for the coefficient. The coefficients for the interaction variables do not differ significantly. Although at smaller values, the standard errors are smaller. In general, for all coefficients, the model 2 and 4 tend to have the smallest standard error.
+
+<div align="center">
+  <img src="https://github.com/elfarahma/car_model_carbon_emission/blob/main/figures/16.png" />
+</div>
+
+<p align="center"><em>Figure 16. Coefficient and standard error - without interaction, unstandardized (left), standardized (right)</em></p>
+
+<div align="center">
+  <img src="https://github.com/elfarahma/car_model_carbon_emission/blob/main/figures/17.png" />
+</div>
+
+<p align="center"><em>Figure 17. Coefficient and standard error - with interaction, unstandardized (left), standardized (right)</em></p>
+
+All multi-predictor models have one common flaw. This may be due to the segmented data distributions of the "Fuel Type" predictor. The use of regular gasoline tends to concentrate within the engine size range of 1–4 liters, while premium gasoline is concentrated within the range of 4–7 liters. Diesel fuel is even only limited to the range of 2–3 liters. Consequently, if we attempt to predict carbon emissions for a vehicle type that uses premium gasoline but has an engine size of one or two liters, the results are likely to be highly deviated.
+
+<div align="center">
+  <img src="https://github.com/elfarahma/car_model_carbon_emission/blob/main/figures/18.png" />
+</div>
+
+<p align="center"><em>Figure 18. Model 1 fitted regression line</em></p>
+
+<div align="center">
+  <img src="https://github.com/elfarahma/car_model_carbon_emission/blob/main/figures/19.png" />
+</div>
+
+<p align="center"><em>Figure 19. Model 3 fitted regression line</em></p>
+
+From the distribution patterns, each "Fuel Type" category exhibits its own distinct pattern. However, their fitted lines don't reflect this. The lines tend to be parallel and have the same slope (Figure 18). By introducing an interaction variable between "Engine Size" and "Fuel Type", we can see that the fitted lines for each fuel type indeed have significantly different slopes. In the case of diesel fuel, which has a small sample frequency and a narrow range of engine size, the slope tends to be flatter.
+
+## Conclusions
+
+1. In three experiments comparing the mean values of two different categories of "Vehicle Class," t-tests indicated significant differences between each compared category. The emissions from compact cars are smaller than those from small SUVs. The emissions from small SUVs are smaller than those from standard SUVs. Lastly, the emissions from cargo vans are smaller than those from passenger vans.
+2. Single predictor linear regression with "Vehicle Class" perform well in certain metrics, but very low in the others. The coefficients could be interpreted reasonably. And the standard error is also relatively small. The model is also versatile. To predict, a user is only required to put the car model into the input. But the performance is not good in terms of r-square value. The r-square for the untransformed and the transformed model is respectively 0.36 and 0.09. This value indicates that the car model alone is far from adequate to be the single predictor.
+3. The r-squared value of the single predictor model is also indicative of the correlation between the car models and their emissions. The r-square which is under 0.5 can be considered as low correlation. But the selected t-tests show that there are significant differences among compared two groups. Therefore, a more comprehensive statistic test should be carried out.
+4. The multi-predictor regression model with engine size and fuel type for predictor variables performs far better than the previous single-predictor model. The performance across different treatments (standardization and addition of variables interaction) is not significantly different. The r-square values are basically the same (around 0.73). The coefficient and standard errors can also be interpreted reasonably. However, a user should be aware that each fuel type has to be in a certain engine size range to ensure good predictions.
+
+## Recommendations
+
+1. T-test is not adequate to examine the mean difference between more than two groups. For testing differences within sixteen sub-groups under "Vehicle Class", it is suggested to use ANOVA instead. This is also useful if we attempt to reduce the number of sub-groups under "Vehicle Class". The car models that have insignificant mean differences could be put together in one group.
+2. More experiments to add variables and the interactions for multi-predictors regression model and see how they might improve the model performance. It also should go hand in hand with proper transformation for predictor variables. The transformation might cover reducing the number of categories under features, especially "Vehicle Class". This one might need more researches to gain domain insights. And also using one-hot encoding for transforming nominal data instead of label encoding.
+3. Collecting more samples for under-represented data such as diesel fuel data for "Fuel Type", manual transmission data for "Transmission", and many categories under "Vehicle Class".
+4. The models above might not be well-representative when applied outside of North America. Some factors might not be applicable. For example, if we assume that North Americans are highly compliant with fuel type requirements, the model will not be appropriate for regions with far less compliant behavior. In addition, the type of fuel might be different or have different qualities. Not to mention other underlying factors in play. Hence, for other regions, it is better to develop a model from the dataset specifically generated from the said region.
+5. To develop a time-series model that is able to estimate the carbon emission projection in regard to the shift of consumer preference toward huge car models such as SUVs and hybrid trucks.
+
+
+## References
+
+Podder, D. 2020. Basic EDA of the CO2 emissions by vehicle dataset. https://www.kaggle.com/code/debajyotipodder/basic-eda-of-the-co2-emissions-by-vehicle-dataset
+
+European Parliamentary Research Service, 2021. Climate action in the Netherlands. https://www.cbs.nl/en-gb/news/2019/47/half-of-transport-ghg-emissions-are-from-aviation
