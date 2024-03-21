@@ -112,3 +112,21 @@ The final dataset can be seen in Figure 11. The dataset consists of six predicto
 The statistical test focuses on comparing the impact of vehicle models in the "Vehicle Class" feature on carbon emissions (the "CO2 emission (g/km)" feature). The t-test is used for statistical analysis due to the unequal sample variance and unknown population standard deviation. Before conducting the test, it is important to ensure that sample members from the compared groups are sufficiently representative. Therefore, other influential variables need to fall into a similar category. The variables here are "Fuel Type" and "Transmission." The chosen category for "Fuel Type" is regular gasoline. For "Transmission," the category is the automatic transmission. These categories are picked due to the relatively fair size of samples.
 How about the numerical variables? From the above exploration, the "Vehicle Class" feature shows a positive correlation with numerical features such as "Cylinders," "Fuel Consumption Comb," and "Engine Size." This suggests that each vehicle type is strongly embedded with a certain engine size and the number of cylinders. Larger engine sizes also require greater fuel consumption. Therefore, the numerical variables are not set to be in similar values.
 This project will conduct three comparisons among multiple categories, which can be seen as follows:
+
+1. Compact vs Small SUV
+
+
+The null (H0) and alternative (H1) hypotheses are defined as follows:
+<blockquote>
+𝐻0: The compact cars' emissions are greater or equal to small SUVs.
+
+H1: The compact car's emissions are less than small SUVs.
+</blockquote>
+
+The significant level (alpha) is 0.05.
+
+<div align="center">
+  <img src="https://github.com/elfarahma/car_model_carbon_emission/blob/main/figures/12.png" />
+</div>
+
+<p align="center"><em>Figure 12. Distribution Plot (Compact vs Small SUV)</em></p>
